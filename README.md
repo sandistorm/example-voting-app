@@ -59,4 +59,4 @@ Note
 
 The voting application only accepts one vote per client. It does not register votes if a vote has already been submitted from a client.
 ### 2022-12-04 ### 18:02
-[![Build Status](http://5.61.27.73:8080/buildStatus/icon?job=instavote%2Fworker-build)](http://5.61.27.73:8080/job/instavote/job/worker-build/)
+[![Build Status](http://5.61.27.73:8080/buildStatus/icon?job=instavote%2Fworker-build)]
