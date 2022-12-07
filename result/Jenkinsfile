@@ -1,0 +1,38 @@
+pipeline {
+        agent any
+
+        tools{
+                NodeJS 'NodeJS 8.9.0'
+        }
+        stages{
+                stage("build"){
+                        when{
+                                changeset "**/result/**"
+                        }
+                        steps{
+                                echo 'Compiling result app'
+                                dir('result'){
+                                sh 'npm install'
+                                }
+                        }
+                }
+                stage("test"){
+                        when{
+                                changeset "**/result/**"
+                        }
+                        steps{
+                                echo 'Running Unit Tets on worker app'
+                                dir('result'){
+                                        sh 'npm install'
+					sh 'npm test'
+                                }
+                        }
+                }
+
+        }
+        post{
+                always{
+                        echo 'MY JOB IS SUCCESSFULLY DONE aminsh'
+                }
+        }
+}
