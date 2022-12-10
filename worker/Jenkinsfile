@@ -32,10 +32,23 @@ pipeline {
 				}
 			}
 		}
+		stage('docker-package'){
+			agent any
+			steps{
+				echo 'Packaging worker app with docker'
+				script{
+					docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
+						def workerImage = docker.build("aminsh86/worker:v${env.BUILD_ID}", "./worker")
+						workerImage.push()
+						workerImage.push("latest")
+					}
+				}
+			}
+		}
 	}
 	post{
 		always{
-			echo 'Building multibranch pipeline for worker is completed.. 2022-12-10 15:26'
+			echo 'Job is completed.. 2022-12-10 17:58'
 		}
 	}
 }
