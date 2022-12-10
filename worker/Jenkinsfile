@@ -63,10 +63,6 @@ pipeline {
 
       stage('docker-package'){
           agent any
-          when{
-            changeset "**/worker/**"
-            branch 'feature/dockerfiles'
-          }
           steps{
             echo 'Packaging worker app with docker'
             script{
