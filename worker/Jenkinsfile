@@ -83,7 +83,7 @@ pipeline {
 
   post{
     always{
-        echo 'Building multibranch pipeline for worker is completed..2022-12-10-18:58'
+        echo 'Building multibranch pipeline for worker is completed..2022-12-10-18:59'
     }
   }
 }
