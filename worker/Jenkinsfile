@@ -27,7 +27,7 @@ pipeline {
 			steps{
 				echo 'Packaging worker app 2022-12-10'
 				dir('worker'){
-					sh 'mvn -f pom.xml package -DskipTests'
+					sh 'mvn package -DskipTests'
 					archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 				}
 			}
